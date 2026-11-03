@@ -1,0 +1,143 @@
+{
+  "site": {
+    "title": "C 語言家教講義",
+    "tagline": "從沒寫過程式，到能做出自己的小遊戲。每一堂都能直接在瀏覽器閱讀，或切成簡報上課用。"
+  },
+  "modules": [
+    {
+      "id": "basic",
+      "name": "基礎篇",
+      "range": "第 1–15 堂",
+      "summary": "C 語言語法與基本資料結構，從 Hello World 到結構排序。",
+      "color": "coral"
+    },
+    {
+      "id": "algo",
+      "name": "演算法篇",
+      "range": "第 16–25 堂",
+      "summary": "APCS 實作題核心演算法：排序、搜尋、前綴和、貪心、DP、圖論。",
+      "color": "teal"
+    },
+    {
+      "id": "oop",
+      "name": "C++／OOP 篇",
+      "range": "第 26–50 堂",
+      "summary": "C++ 與物件導向，最後用 raylib 做出一個小遊戲。",
+      "color": "indigo"
+    },
+    {
+      "id": "extra",
+      "name": "番外篇",
+      "range": "E1–E12",
+      "summary": "工具、解題素養、數位素養、應試與生涯。",
+      "color": "amber"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "lesson-01",
+      "module": "basic",
+      "no": "1",
+      "title": "環境設定與第一支程式",
+      "summary": "從零開始，寫出你的第一支程式 🚀"
+    },
+    {
+      "id": "lesson-02",
+      "module": "basic",
+      "no": "2",
+      "title": "變數、資料型態與輸入輸出",
+      "summary": "讓程式學會「讀資料、算東西、印結果」📥➡️📤"
+    },
+    {
+      "id": "lesson-03",
+      "module": "basic",
+      "no": "3",
+      "title": "運算子與運算式",
+      "summary": "把數學式，正確翻成程式 ➕➖✖️➗"
+    },
+    {
+      "id": "lesson-04",
+      "module": "basic",
+      "no": "4",
+      "title": "分支 (一) if / if-else",
+      "summary": "讓程式學會「看情況做不同的事」🔀"
+    },
+    {
+      "id": "lesson-05",
+      "module": "basic",
+      "no": "5",
+      "title": "分支 (二) 多重分支與 switch",
+      "summary": "處理「兩種以上情況」的分類 🗂️"
+    },
+    {
+      "id": "lesson-06",
+      "module": "basic",
+      "no": "6",
+      "title": "迴圈 (一) while / do-while",
+      "summary": "讓程式「重複做事」🔁"
+    },
+    {
+      "id": "lesson-07",
+      "module": "basic",
+      "no": "7",
+      "title": "迴圈 (二) for 與巢狀迴圈",
+      "summary": "把迴圈寫得更緊湊、處理表格與圖形 🔢"
+    },
+    {
+      "id": "lesson-08",
+      "module": "basic",
+      "no": "8",
+      "title": "一維陣列",
+      "summary": "一次處理「一整串」資料 📚"
+    },
+    {
+      "id": "lesson-09",
+      "module": "basic",
+      "no": "9",
+      "title": "二維陣列",
+      "summary": "處理表格、矩陣、棋盤 🔲"
+    },
+    {
+      "id": "lesson-10",
+      "module": "basic",
+      "no": "10",
+      "title": "字元與字串",
+      "summary": "讓程式處理文字 🔤"
+    },
+    {
+      "id": "lesson-11",
+      "module": "basic",
+      "no": "11",
+      "title": "函式 (一) 自訂函式",
+      "summary": "把程式拆成可重用的小積木 🧩"
+    },
+    {
+      "id": "lesson-12",
+      "module": "basic",
+      "no": "12",
+      "title": "函式 (二) 遞迴與作用域",
+      "summary": "函式呼叫自己 🔁🪞"
+    },
+    {
+      "id": "lesson-13",
+      "module": "basic",
+      "no": "13",
+      "title": "指標入門",
+      "summary": "解開兩個謎：`&` 和「函式改不到外面變數」🔑"
+    },
+    {
+      "id": "lesson-14",
+      "module": "basic",
+      "no": "14",
+      "title": "結構 struct",
+      "summary": "用一個型態描述一個「東西」📦"
+    },
+    {
+      "id": "lesson-15",
+      "module": "basic",
+      "no": "15",
+      "title": "綜合複習與小專題",
+      "summary": "把 14 堂整合起來，畢業挑戰！🎓"
+    }
+  ]
+}

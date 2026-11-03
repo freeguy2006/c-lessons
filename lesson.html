@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>講義｜C 語言家教講義</title>
+<link rel="stylesheet" href="assets/vendor/hljs-github.min.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<nav class="topbar">
+  <div class="wrap">
+    <a class="back" href="index.html">← 講義庫</a>
+    <div class="crumb">
+      <span class="tag" id="tag">載入中</span>
+      <span class="title" id="title"></span>
+    </div>
+    <button class="btn" id="mode" type="button" aria-pressed="false">簡報模式</button>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div class="reader" id="reader"><p class="hint">講義載入中…</p></div>
+  <nav class="lesson-nav" id="lesson-nav"></nav>
+</main>
+
+<div class="deck" aria-live="polite">
+  <div class="stage" id="stage"></div>
+  <div class="deck-bar">
+    <button class="btn" id="prev" type="button" aria-label="上一頁">←</button>
+    <span class="count" id="count"></span>
+    <button class="btn" id="next" type="button" aria-label="下一頁">→</button>
+    <button class="btn" id="full" type="button">全螢幕</button>
+    <span class="hint">← → 翻頁・F 全螢幕・Esc 回閱讀</span>
+  </div>
+</div>
+<div class="progress" id="progress"></div>
+
+<script src="assets/vendor/marked.umd.js"></script>
+<script src="assets/vendor/highlight.min.js"></script>
+<script src="assets/lesson.js"></script>
+</body>
+</html>
