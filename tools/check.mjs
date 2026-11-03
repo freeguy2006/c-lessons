@@ -35,6 +35,8 @@ for (const m of data.modules) {
 
 const seen = new Set();
 const lastNo = {};
+const moduleOrder = data.modules.map(m => m.id);
+let lastModule = 0;
 for (const l of data.lessons) {
   const where = `lessons.json 的 ${l.id ?? '(沒有 id)'}`;
   for (const k of ['id', 'module', 'no', 'title', 'summary']) if (!l[k]) err(`${where} 缺少欄位 ${k}`);
@@ -50,6 +52,11 @@ for (const l of data.lessons) {
   const n = Number(String(l.no).replace(/^E/, ''));
   if (lastNo[l.module] !== undefined && n <= lastNo[l.module]) err(`${where}：同模組內要依堂數由小到大排列`);
   lastNo[l.module] = n;
+
+  // 整個陣列依 modules 的順序排（CLAUDE.md 第 4 節第 4 步）
+  const mi = moduleOrder.indexOf(l.module);
+  if (mi < lastModule) err(`${where}：要排在「${data.modules[lastModule].name}」的講義前面（陣列依模組順序排列）`);
+  lastModule = Math.max(lastModule, mi);
 
   if (!existsSync(join(root, 'lessons', `${l.id}.md`))) err(`${where}：找不到 lessons/${l.id}.md`);
 }

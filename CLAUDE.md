@@ -61,7 +61,9 @@ c-lessons/
 3. **複製內容**：把 `slides.md` **原封不動**複製成 `lessons/<id>.md`。
    - 保留開頭的 Marp front matter（`marp: true`、`header`、`footer`）、`<style>` 區塊、`<!-- _class: lead -->` 註解；閱讀器會自己處理。
    - 不要改寫教學內容、不要「順手」補解答或修題目。內容有錯請回報，改在來源檔。
-4. **登記到 `lessons.json` 的 `lessons` 陣列**，放在同模組最後一堂的後面（同模組依堂數由小到大）：
+4. **登記到 `lessons.json` 的 `lessons` 陣列**。整個陣列依模組順序 `basic → algo → oop → extra` 排，同模組內依堂數由小到大：
+   - 模組已有講義 → 插在該模組最後一堂的後面（或依堂數插到正確位置）。
+   - 模組的第一堂 → 插在「前一個模組」最後一堂的後面；前面的模組都沒有講義時，放在陣列最前面。
 
    ```json
    {
@@ -79,13 +81,15 @@ c-lessons/
    | `module` | `basic`（1–15）、`algo`（16–25）、`oop`（26–50）、`extra`（E1–E12） |
    | `no` | **字串**。正課寫數字 `"4"`；番外寫 `"E3"` |
    | `title` | 抄表格的「主題」欄（哪份總覽見第 2 節最後一點）。例：第 4 堂 → `分支 (一) if / if-else`、第 26 堂 → `C++ 初登場` |
-   | `summary` | 抄 slides 封面頁 `##` 副標題**下一行**的那句標語（有 emoji 就一起抄；可用 `code` 標程式碼） |
+   | `summary` | 抄 slides 封面頁 `##` 副標題之後的**第一個非空行**（那句標語，有 emoji 就一起抄；可用 `code` 標程式碼）。例：第 16 堂 → `判斷「會不會太慢」+ 暴力解題 ⏱️` |
 
 5. **跑檢查**：`node tools/check.mjs`，必須顯示 `✓ 檢查通過`。
 6. **本機預覽**（見第 7 節），至少確認：首頁出現新卡片、講義頁能開、簡報模式能翻到最後一頁。
-7. **更新 `ideas/roadmap.md`** 的上架進度。
+7. **更新 `ideas/roadmap.md`** 的上架進度表：「已上架」「待上架」兩欄都用堂數寫，連號用 `–`、不連號用 `、`（例：`16–18、20`）；全部上架時「待上架」寫 `—`。
+8. **commit**：一次上架寫一個 commit，訊息例如 `新增第 16 堂講義`。
+   - **push 到 `main` 才算真正上架**（GitHub Pages 約 1 分鐘後更新）。push 會公開內容，**AI 不要自己 push**，做完告訴使用者「已 commit，可以 push」。
 
-> 一次新增很多堂時，每一堂都照 1–4 做完，最後跑一次 5–7 即可。
+> 一次新增很多堂時，每一堂都照 1–4 做完，最後跑一次 5–8 即可。
 
 ## 5. 講義 Markdown 的格式（Marp 子集）
 
@@ -113,10 +117,13 @@ c-lessons/
 `lesson.html` 用 `fetch` 讀檔，**不能直接雙擊開啟**，要開本機伺服器：
 
 ```bash
-cd D:\家教\c-lessons
-python -m http.server 8080
-# 瀏覽 http://127.0.0.1:8080/
+# 在 repo 根目錄執行（PowerShell 或 Git Bash 都可以）
+python -m http.server 8080 --bind 127.0.0.1
+# 瀏覽 http://127.0.0.1:8080/ ，預覽完按 Ctrl+C 關掉伺服器
 ```
+
+- 主控台出現 `favicon.ico` 404 是正常的（網站用的是 `assets/favicon.svg`），**不要為此改網站外殼**。
+- 換行符號（CRLF／LF）不用管：repo 開了 `core.autocrlf`，閱讀器和 `check.mjs` 兩種都能讀；git 出現 `LF will be replaced by CRLF` 警告可忽略。
 
 ## 8. 不可以做的事
 
@@ -139,4 +146,4 @@ python -m http.server 8080
 - [ ] 首頁卡片、講義頁、簡報模式都在本機看過
 - [ ] 沒有任何 `main.md` 內容進到 repo
 - [ ] `ideas/roadmap.md` 已更新
-- [ ] commit 訊息寫清楚做了什麼，例如 `新增第 4–6 堂講義`
+- [ ] 已 commit，訊息寫清楚做了什麼，例如 `新增第 4–6 堂講義`；push 交給使用者決定（第 4 節第 8 步）
