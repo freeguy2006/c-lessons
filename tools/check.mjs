@@ -12,6 +12,9 @@ const err = msg => errors.push(msg);
 
 // 只出現在老師版 main.md 的字樣；學生版講義出現就代表放錯檔
 const FORBIDDEN = ['參考解答', '勿直接給', '講者筆記', '教學指引', '逐頁教學'];
+// GitHub Pages 少了 .nojekyll 會用 Jekyll 處理 lessons/*.md
+if (!existsSync(join(root, '.nojekyll'))) err('缺少 .nojekyll（見 CLAUDE.md 第 8 節）');
+
 const ID_RE = /^(lesson-\d{2}|extra-\d{2})$/;
 const COLORS = ['coral', 'teal', 'indigo', 'amber'];
 

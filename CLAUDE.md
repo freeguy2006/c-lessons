@@ -30,6 +30,7 @@ c-lessons/
 ├── CLAUDE.md          ← 本文件（AI 規則）
 ├── AGENTS.md          ← 指向本文件（給 Codex 等工具）
 ├── README.md          ← 給人看的簡介與本機預覽方式
+├── .nojekyll          ← 關閉 GitHub Pages 的 Jekyll，讓 lessons/*.md 以原始檔提供（不可刪）
 ├── index.html         ← 首頁「講義庫」：依 lessons.json 自動畫卡片（不要寫死課程）
 ├── lesson.html        ← 通用講義閱讀器：lesson.html?id=lesson-04
 ├── lessons.json       ← ★ 唯一的課程目錄（模組＋講義清單）
@@ -124,6 +125,7 @@ python -m http.server 8080
 - ❌ 為了單一講義去改 `lesson.js` 的解析規則。內容配合格式，而不是格式配合內容；真的需要新語法，先在 `ideas/roadmap.md` 記下來討論。
 - ❌ 改 `assets/vendor/` 裡的第三方檔案、改成從 CDN 載入。
 - ❌ 加建置工具（npm 套件、打包器）。這個網站維持「純靜態檔＋GitHub Pages」。
+- ❌ 刪掉 `.nojekyll`。少了它，GitHub Pages 會把 `lessons/*.md` 轉成 HTML，閱讀器就讀不到講義。
 
 ## 9. 其他常見任務
 
